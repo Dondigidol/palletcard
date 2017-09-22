@@ -1,0 +1,56 @@
+* {
+	font-family: Consolas;
+}
+
+body {
+	margin: 0;
+	background: #f0f0f0;
+}
+#loginform {	
+	margin: 15% auto;
+	width: 12em;
+	background: #56c456;
+	box-shadow: 0em 0em 2em;
+	padding: 0.5em;
+	z-index: 2;
+}
+#loginform label {
+	font-size: 1em;
+	padding-left: 0.5em;
+	color: #333333; 
+}
+
+#loginform input {
+	margin: 0 auto;
+	display: block;
+	width: 7em;
+	font-size: 1.5em;
+	text-align: center;
+	outline: none;
+}
+
+#loginform button{
+	margin: 0 auto;
+	display: block;
+	width: 8em;
+	height: 2em;
+	font-size: 1.2em;
+	color: white;
+	background: green;
+	border: 0;
+	outline: none;
+}
+
+#loginform button:hover{
+	background: #2bb52b;
+}
+
+#version {
+	font-size: 0.8em;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	display: block;
+	color: grey;
+	z-index: 0;
+}
