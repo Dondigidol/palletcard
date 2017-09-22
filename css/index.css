@@ -1,10 +1,16 @@
 * {
-	font-family: Josefin Sans, Helvetica;
+	font-family: Helvetica;
+	font-
+	
+}
+
+:root {
+	--main-bg-color: #f0f0f0;
 }
 
 body {
 	margin: 0;
-	background: #f0f0f0;
+	background: var(--main-bg-color);
 }
 
 #header {
@@ -16,6 +22,12 @@ body {
 #header p{
 	text-align: center;
 	font-size: 2em;
+	font-weight: bold;
+	color: white;
+	text-shadow: -1px -1px 0 green,
+				1px -1px 0 green,
+				-1px 1px 0 green,
+				1px 1px 0 green;
 }
 
 #triangle {
@@ -26,7 +38,7 @@ body {
 	height: 0;
 	border-left: 5em solid transparent;
 	border-right: 5em solid transparent;
-	border-bottom: 5em solid #f0f0f0;
+	border-bottom: 5em solid var(--main-bg-color);
 }
 
 #logo {
@@ -39,7 +51,8 @@ body {
 	height: 6.5em;
 }
 
-#loginform {	
+#loginform {
+	border: 0.1em solid green;
 	margin: 15% auto;
 	width: 12em;
 	background: #56c456;
@@ -54,6 +67,7 @@ body {
 }
 
 #loginform input {
+	border: 0.05em solid green;
 	margin: 0 auto;
 	display: block;
 	width: 7em;
