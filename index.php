@@ -9,7 +9,12 @@
 	
 </head>
 <body>
-	<script src = "js/index.js"></script>
+	<script src = "js/index.js"></script>	
+	<div id= "header" name= "header">
+		<p>Карточка подготовки паллет</p>		
+	</div>
+	<div id= "triangle" name="triangle"></div>
+	<div id= "logo" name="logo" ></div>
 	<div id= "loginform" name = "loginform">
 		<label for = "login">Ldap</label><br>
 		<input type = "text" id = "login" name = "login" autofocus></input><br>
