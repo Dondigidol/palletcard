@@ -1,7 +1,5 @@
 * {
 	font-family: Helvetica;
-	font-
-	
 }
 
 :root {
@@ -9,7 +7,7 @@
 }
 
 body {
-	margin: 0;
+	margin: 0 0;
 	background: var(--main-bg-color);
 }
 
@@ -53,9 +51,9 @@ body {
 
 #loginform {
 	border: 0.1em solid green;
-	margin: 15% auto;
+	margin: 15% auto 1%;
 	width: 12em;
-	background: #56c456;
+	background: #7bd17b;
 	box-shadow: 0em 0em 1.5em;
 	padding: 0.5em;
 	z-index: 2;
@@ -91,6 +89,18 @@ body {
 #loginform button:hover{
 	background: #2bb52b;
 }
+
+#alerts {
+	visibility: hidden;
+	background: #ffc0cb;
+	margin: 0 auto;
+	width: 15em;
+	text-align: center;
+	color: red;
+	padding: 0.2em;
+	font-size: 0.9em;
+}
+
 
 #version {
 	font-size: 0.8em;
