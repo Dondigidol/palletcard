@@ -26,7 +26,7 @@ class ldap_connection
 		if (isset($this->conn))
 		{
 			ldap_set_option($this->conn, LDAP_OPT_PROTOCOL_VERSION, 3);
-			ldap_bind($this->conn, "ru1000\\".$user, $userPW) or die('Ошибка: введен некорректный логин, либо пароль');		
+			ldap_bind($this->conn, "ru1000\\".$user, $userPW) or die('Ошибка! Введен некорректный логин, либо пароль');		
 		}
 		else die('Подключение не создано!');
 		
