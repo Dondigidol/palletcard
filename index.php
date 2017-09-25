@@ -1,5 +1,9 @@
-<!DOCTYPE HTML PUBLIC  "-//W3C//DTD HTML 4.01//EN"
-
+<?php
+session_start();
+if (isset($_SESSION["ldap"])){
+	header("location: card.php");
+}
+?>
 
 <html>
 <head>
@@ -9,7 +13,8 @@
 	
 </head>
 <body>
-	<script src = "js/index.js"></script>	
+	<script type= "text/javascript" src= "js/index.js"></script>
+	<script type= "text/javascript" src= "js/jquery.js"></script>
 	<div id= "header" name= "header">
 		<p>Карточка подготовки паллет</p>		
 	</div>
@@ -22,6 +27,7 @@
 		<input type = "password" id = "password" name = "password"></input><br>
 		<button id = "loginbtn" name = "loginbtn" onclick = "loginbtn_clk()">Войти</button>
 	</div>
+	<div id= "alerts" name= "alerts"></div>
 	<div id= "version" name= "version">Версия 0.1 RC</div>
 </body>
 
