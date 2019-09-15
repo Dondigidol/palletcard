@@ -3,7 +3,6 @@ function loginbtn_clk(){
 	$("#alerts").html('');
 	var ldap = $("#login").val();
 	var ldappw = $("#password").val();
-	
 	if ((ldap != "") && (ldappw != "")){
 		
 		$.ajax({

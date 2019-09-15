@@ -1,61 +1,29 @@
-* {
-	font-family: Helvetica;
-}
-
-:root {
-	--main-bg-color: #f0f0f0;
-}
-
 body {
 	margin: 0 0;
 	background: var(--main-bg-color);
 }
 
-#header {
-	background: #a0dea0;
-	height: 3em;
-	width: 100%;
+:root {
+	--border-color: rgba(55,143,37, 0.5);
 }
 
 #header p{
 	text-align: center;
 	font-size: 2em;
-	font-weight: bold;
 	color: white;
-	text-shadow: -1px -1px 0 green,
-				1px -1px 0 green,
-				-1px 1px 0 green,
-				1px 1px 0 green;
+	text-shadow: -1px -1px 0 var(--border-color),
+				1px -1px 0 var(--border-color),
+				-1px 1px 0 var(--border-color),
+				1px 1px 0 var(--border-color);
 }
 
-#triangle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 0;
-	height: 0;
-	border-left: 5em solid transparent;
-	border-right: 5em solid transparent;
-	border-bottom: 5em solid var(--main-bg-color);
-}
-
-#logo {
-	position: absolute;
-	top: 0;
-	right: 0;
-	background-image: url(../img/logo.png);
-	background-size: 100% 100%;
-	width: 10em;
-	height: 6.5em;
-}
 
 #loginform {
-	border: 0.1em solid green;
 	margin: 15% auto 1%;
 	width: 12em;
 	background: #7bd17b;
 	box-shadow: 0em 0em 1.5em;
-	padding: 0.5em;
+	padding: 0.1em;
 	z-index: 2;
 }
 #loginform label {
@@ -65,7 +33,7 @@ body {
 }
 
 #loginform input {
-	border: 0.05em solid green;
+	border: 0.05em solid var(--border-color);
 	margin: 0 auto;
 	display: block;
 	width: 7em;
@@ -74,19 +42,19 @@ body {
 	outline: none;
 }
 
-#loginform button{
+#loginbtn{
 	margin: 0 auto;
 	display: block;
 	width: 8em;
 	height: 2em;
 	font-size: 1.2em;
 	color: white;
-	background: green;
+	background: var(--border-color);
 	border: 0;
 	outline: none;
 }
 
-#loginform button:hover{
+#loginbtn:hover{
 	background: #2bb52b;
 }
 

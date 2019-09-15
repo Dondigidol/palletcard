@@ -9,3 +9,20 @@ function logout(){
 		}
 	});
 }
+
+function getItem(itemName){
+	var val = $("#" + itemName).val();
+	var posLine = itemName.split("_")[1];
+	switch (val.length){
+		case 8: {
+				$("#kol_" + posLine).focus();
+			}
+			break;
+		case 12: {
+				$("#kol_" + posLine).focus();
+			}
+			break;
+		default: $("#" + itemName).focus();
+			break;
+	}
+}
