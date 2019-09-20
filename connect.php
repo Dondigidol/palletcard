@@ -97,6 +97,8 @@ class mssql_connection
 			catch (Exception $e)
 			{
 				echo 'Ошибка при выполнении запроса' . $e->getmessage() . '\n';
+			} finally {
+				mssql_close();
 			}
 		}
 	}
@@ -124,7 +126,7 @@ class postgre_connection{
 	{
 		try
 		{
-			$connectionStr = 'host=' . $this->server . ' port=' . $this->port . ' dbname=' . $this->database. ' user=' . $this->user . ' password=' . $this->userPW;   	
+			$connectionStr = 'host=' . $this->server . ' port=' . $this->port . ' dbname=' . $this->database . ' user=' . $this->user . ' password=' . $this->userPW;   	
 			$this->conn = pg_connect($connectionStr);
 		
 		}
@@ -141,7 +143,7 @@ class postgre_connection{
 		{
 			try 
 			{					
-				ini_set('max_execution_time', 10000);
+				ini_set('max_execution_time', 2000);
 				$arr = pg_query($this->conn, $query_str);
 				$query_type = explode(' ', $query_str);
 				if (strtoupper($query_type[0]) == 'SELECT')
@@ -157,6 +159,8 @@ class postgre_connection{
 			catch (Exception $e)
 			{
 				echo 'Ошибка при выполнении запроса' . $e->getmessage() . '\n';
+			} finally {
+				pg_close();
 			}
 		}
 	}

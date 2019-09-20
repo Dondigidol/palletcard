@@ -33,12 +33,12 @@ switch ($_SESSION["otdel_id"]){
 	<script type= "text/javascript" src= "js/JsBarcode.all.min.js"></script>	
 	<script type= "text/javascript" src= "js/functions.js"></script>
 	<div id= "header" name= "header">
+		<div id= "triangle" name="triangle"></div>
+		<div id= "logo" name="logo"></div>
 		<div id="buttonsBlock">			
 			<div id= "printButton" onclick = "window.print()" class = "menuButtons"></div>
 		</div>
-		<div id= "triangle" name="triangle"></div>
-		<div id= "logo" name="logo"></div>
-		<a href= "index.php" onclick= "logout();" style="position: absolute; right: 1em; top: 0.5em;">Выйти</a>
+		<a href= "index.php" onclick= "logout();">Выйти</a>
 	</div>
 <div id= "cardcont" name= "cardcont">
 	<div id= "card" name= "card">
