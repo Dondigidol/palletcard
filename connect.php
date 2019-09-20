@@ -26,7 +26,7 @@ class ldap_connection
 		if (isset($this->conn))
 		{
 			ldap_set_option($this->conn, LDAP_OPT_PROTOCOL_VERSION, 3);
-			ldap_bind($this->conn, "ru1000\\".$user, $userPW) or die('Ошибка! Введен некорректный логин, либо пароль');		
+			ldap_bind($this->conn, "ru1000\\".$user, $userPW) or die('Ошибка! Невреный логин или пароль!');		
 		}
 		else die('Подключение не создано!');
 		
@@ -36,7 +36,7 @@ class ldap_connection
 	{	
 		if (isset($this->conn) and isset($this->dn))
 		{
-			$result = ldap_search($this->conn, $this->dn, "(sAMAccountName=$this->user)") or die ("Ошибка поиска: ".ldap_error($this->conn));
+			$result = ldap_search($this->conn, $this->dn, "(sAMAccountName=$this->user)") or die ("Ошибка поиска");
 			return ldap_get_entries($this->conn, $result);
 		}
 		else die('Подключение к ldap-серверу не готово!');
@@ -102,6 +102,68 @@ class mssql_connection
 	}
 }
 
+class postgre_connection{
+	var $server;
+	var $port;
+	var $database;
+	var $user;
+	var $userPW;
+	var $conn;
+	
+	function get_params($ini_file){
+		$params_arr = parse_ini_file($ini_file);
+		isset($params_arr['postgre_server']) ? $this->server = $params_arr['postgre_server'] : die('В файле конфигурации нет данных о Postgre сервере');
+		isset($params_arr['postgre_port']) ? $this->port = $params_arr['postgre_port'] : die('В файле конфигурации нет данных о номере порта Postgre сервера');
+		isset($params_arr['postgre_database']) ? $this->database = $params_arr['postgre_database'] : die('В файле конфигурации нет данных о подключаемой базе Postgre сервера');
+		isset($params_arr['postgre_user']) ? $this->user = $params_arr['postgre_user'] : die('В файле конфигурации нет данных о логине подключения к Postgre серверу');
+		isset($params_arr['postgre_password']) ? $this->userPW = $params_arr['postgre_password'] : die('В файле конфигурации нет данных о пароле подключения к Postgre серверу');			
+		
+	}
+	
+	function set_connection()
+	{
+		try
+		{
+			$connectionStr = 'host=' . $this->server . ' port=' . $this->port . ' dbname=' . $this->database. ' user=' . $this->user . ' password=' . $this->userPW;   	
+			$this->conn = pg_connect($connectionStr);
+		
+		}
+		catch (Exception $e)
+		{
+			echo 'Ошибка при подключении к Postgre серверу:' . $e->getMessage() . '\n';
+		}
+		
+	}
+	
+	function sql_query($query_str)
+	{
+		if (isset($this->conn))
+		{
+			try 
+			{					
+				ini_set('max_execution_time', 10000);
+				$arr = pg_query($this->conn, $query_str);
+				$query_type = explode(' ', $query_str);
+				if (strtoupper($query_type[0]) == 'SELECT')
+				{
+					$result = array();
+					while($val = pg_fetch_array($arr))
+					{
+						array_push($result, $val);
+					}		
+					return $result;
+				}					
+			}
+			catch (Exception $e)
+			{
+				echo 'Ошибка при выполнении запроса' . $e->getmessage() . '\n';
+			}
+		}
+	}
+	
+}
+
+
 
 function connect_to_ldap($user, $userPW, $ini_file)
 {
@@ -118,6 +180,14 @@ function connect_to_mssql($ini_file)
 	$mssql->get_params($ini_file);
 	$mssql->set_connection();
 	return $mssql;
+}
+
+function connect_to_postgre($ini_file)
+{
+	$postgre = new postgre_connection;
+	$postgre->get_params($ini_file);
+	$postgre->set_connection();
+	return $postgre;
 }
 
  
