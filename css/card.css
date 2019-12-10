@@ -1,11 +1,12 @@
 :root {
-	--paper-size: 20em;
+	--paper-size: 23em;
 }
 
 body {
 	margin: 0;
 	background: var(--main-bg-color);
 	height: 100vh;
+	overflow-y: none;
 }
 
 #header a{
@@ -39,7 +40,7 @@ body {
 
 #cardcont {
 	display: block;
-	height: calc(100vh - 6.5em);
+	height: calc(100vh - 8em);
 	padding: 2em 0 2em; 
 	overflow-y: auto;
 }

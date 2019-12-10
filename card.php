@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["ldap"])){
+if (!isset($_SESSION['user_id'])){
 	header("location: index.php");
 }
 
@@ -12,6 +12,8 @@ switch ($_SESSION["otdel_id"]){
 	case 55: $rows=10;
 			break;
 	case 715: $rows=10;
+			break;
+	case 12: $rows=10;
 			break;
 	default: $rows=5;
 			break;
@@ -137,7 +139,7 @@ switch ($_SESSION["otdel_id"]){
 
 	document.onclick = function(e){
 		<?php
-			if (!isset($_SESSION["ldap"])){
+			if (!isset($_SESSION['user_id'])){
 				header("location: index.php");
 			}
 		?>
