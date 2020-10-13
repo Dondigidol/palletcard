@@ -1,204 +1,203 @@
 :root {
-	--paper-size: 23em;
+  --paper-size: 23em;
 }
 
 body {
-	margin: 0;
-	background: var(--main-bg-color);
-	height: 100vh;
-	overflow-y: none;
+  margin: 0;
+  background: var(--main-bg-color);
+  height: 100vh;
+  overflow-y: none;
 }
 
-#header a{
-	display: table-cell;
-	vertical-align: middle;
-	text-align: right;
-	padding-right: 1em;
+#header a {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: 1em;
 }
 
 #buttonsBlock {
-	position: absolute;
-	top: 4.5em;
-	left: 3.5em;
+  position: absolute;
+  top: 4.5em;
+  left: 3.5em;
 }
 
 .menuButtons {
-	width: 3em;
-	height: 3em;
+  width: 3em;
+  height: 3em;
 }
 
-#printButton{
-	background: url(../img/print.png) no-repeat;
-	background-size: auto 100%;
+#printButton {
+  background: url(../img/print.png) no-repeat;
+  background-size: auto 100%;
 }
 
 #printButton:hover {
-	border-radius: 1em;
-	background-color: rgba(100,100,100,0.4);	
+  border-radius: 1em;
+  background-color: rgba(100, 100, 100, 0.4);
 }
 
-
 #cardcont {
-	display: block;
-	height: calc(100vh - 8em);
-	padding: 2em 0 2em; 
-	overflow-y: auto;
+  display: block;
+  height: calc(100vh - 8em);
+  padding: 2em 0 2em;
+  overflow-y: auto;
 }
 
 #card {
-	margin: 0 auto;
-	background: #fff;
-	width: 40em;
-	height: calc(1.4142857 * 40em);
-	box-shadow: 0em 0em 1.5em;
-	text-align: left;
-	padding: 1em 2em 1em;
-	line-height: 1.5em;
+  margin: 0 auto;
+  background: #fff;
+  width: 40em;
+  height: calc(1.4142857 * 40em);
+  box-shadow: 0em 0em 1.5em;
+  text-align: left;
+  padding: 1em 2em 1em;
+  line-height: 1.5em;
 }
 
-#card h1{
-	text-align: center;
+#card h1 {
+  text-align: center;
 }
 
 .tables {
-	border-collapse: collapse;
-	margin: 0 auto;
+  border-collapse: collapse;
+  margin: 0 auto;
+  font-size: 0.8em;
 }
 
-.tables input[type=number]{
-	border: 0px solid green;
-	width:90%;
-	height: 80%;
-	text-align: center;
-	font-size: 1em;
-	margin: 0 auto;
+.tableshead {
+  text-align: center;
 }
 
-.tab_article_input{
-	visibility: hidden;
+.tables input[type="number"] {
+  border: 0px solid green;
+  width: 90%;
+  height: 80%;
+  text-align: center;
+  font-size: 1em;
+  margin: 0 auto;
 }
 
-.lmLabel{
-	border: 0px solid red;
-	position: absolute;
-	width: 100%; 
-	height: 50%;
-	left: 0;
-	top: 25%;
-	text-align: center;
-	font-size: 1em;
+.tab_article_input {
+  visibility: hidden;
 }
 
-.skuLabel{
-	border: 0px solid red;
-	position: absolute;
-	width: 100%; 
-	height: 100%;
-	left: 0;
-	top: 0;
-	text-align: center;
-	font-size: 0.6em;
-	color: transparent;
+.lmLabel {
+  border: 0px solid red;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  left: 0;
+  top: 25%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.skuLabel {
+  border: 0px solid red;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  font-size: 0.6em;
+  color: transparent;
 }
 
 .barcode {
-	position: absolute;
-	border: 0px solid orange;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
+  position: absolute;
+  border: 0px solid orange;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
-.clearButton{
-	position: absolute;
-	top: 35%;
-	left: 110%;
-	width: 1em;
-	height: 1em;
-	background: url(../img/clearButton.png) no-repeat;
-	background-size: auto 100%;
-	display: none;
+.clearButton {
+  position: absolute;
+  top: 35%;
+  left: 110%;
+  width: 1em;
+  height: 1em;
+  background: url(../img/clearButton.png) no-repeat;
+  background-size: auto 100%;
+  display: none;
 }
 
-.tablescont td{
-	border: 1px solid black;
-	font-weight: bold;
-	font-size: 2em;
-	text-align: center;
-	height: 1.8em;
+.tablescont td {
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+  height: 1.8em;
 }
 
-.tablescont2 td{
-	border: 1px solid black;
-	font-size: 1em;
-	height: 2.5em;
-	text-align:center;
-	position: relative;
+.tablescont2 td {
+  border: 1px solid black;
+  font-size: 1em;
+  height: 2.5em;
+  text-align: center;
+  position: relative;
 }
 
-#errorCont{
-	position: absolute;
-	left: 0;
-	top:100%;
-	width: 100%;
-	height:1.5em;
-	margin-top: -1.5em;
-	background-color: transparent;
+#errorCont {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  height: 1.5em;
+  margin-top: -1.5em;
+  background-color: transparent;
 }
 
-#otdelCont{
-	width:100%;
-	height:100%;
-	background-color: red;	
+#otdelCont {
+  width: 100%;
+  height: 100%;
+  background-color: red;
 }
 
-#otdels_select{
-	width:80%;
-	border: none;
-	font-weight: bold;
-	font-size: 1em;
-	text-align: center;
-	background-color: transparent;
-	margin-top: calc(0.9em - 0.5em);
-	outline: none;
-	text-align-last:center;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;	
+#otdels_select {
+  width: 80%;
+  border: none;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  background-color: transparent;
+  margin-top: calc(0.9em - 0.5em);
+  outline: none;
+  text-align-last: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-#otdels_select option{
-	font-size: 0.4em;
+#otdels_select option {
+  font-size: 0.4em;
 }
 
+@media print {
+  #header {
+    display: none;
+  }
 
+  #cardcont {
+    display: block;
+    height: calc(100vh - 10em);
+    margin-top: 0em;
+    overflow: hidden;
+  }
 
-@media print{
-
-	#header {
-		display: none;
-	}
-	
-	#cardcont {
-	display: block;
-	height: calc(100vh - 10em);
-	margin-top: 0em;
-	overflow: hidden;
-	}
-
-	
-	#card {
-		margin: 0 auto;
-		background: #fff;
-		width: 40em;
-		height: calc(1.4142857 * 40em);
-		text-align: left;
-		line-height: 1.5em;
-		box-shadow: 0em 0em 0em;
-		overflow: hidden;
-	}
-
+  #card {
+    margin: 0 auto;
+    background: #fff;
+    width: 40em;
+    height: calc(1.4142857 * 40em);
+    text-align: left;
+    line-height: 1.5em;
+    box-shadow: 0em 0em 0em;
+    overflow: hidden;
+  }
 }
 
 @page {
@@ -207,8 +206,7 @@ body {
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
-
