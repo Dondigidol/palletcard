@@ -228,9 +228,27 @@ switch ($_SESSION["otdel_id"]) {
 				success: function(data) {
 					let avs = JSON.parse(data);
 					if (!avs.error) {
-						AVSLabel[pos].innerHTML = avs.uda_date;
+						AVSLabel[pos].innerHTML = avs.avsDate;
 					} else {
 						AVSLabel[pos].innerHTML = "";
+					}
+				}
+			})
+		}
+
+		function get2080(item, pos) {
+			$.ajax({
+				type: "post",
+				url: "aj/get2080.php",
+				data: {
+					"item": item
+				},
+				success: function(data) {
+					let status2080 = JSON.parse(data);
+					if (!status2080.error) {
+						label2080[pos].innerHTML = status2080.status;
+					} else {
+						label2080[pos].innerHTML = "";
 					}
 				}
 			})
@@ -239,32 +257,37 @@ switch ($_SESSION["otdel_id"]) {
 		function getItemBySku(sku, pos) {
 			skuLabel[pos].innerHTML = "";
 			barcode[pos].innerHTML = "";
-			$.ajax({
-				type: "POST",
-				url: "aj/getdata.php",
-				data: {
-					"sku": sku
-				},
-				success: function(data) {
-					data = data.split("|");
-					if (data[0] == "") {
-						data[0] = sku;
-					}
-					lmLabel[pos].innerHTML = data[1];
-					skuLabel[pos].innerHTML = data[0];
-					if (data[0] != "") {
-						JsBarcode("#barcode_" + pos, data[0], {
-							width: 1.5,
-							height: 30,
-							font: "Helvetica"
-						});
+			if (sku) {
+				$.ajax({
+					type: "POST",
+					url: "aj/getdata.php",
+					data: {
+						"sku": sku
+					},
+					success: function(data) {
+						data = data.split("|");
+						if (data[0] == "") {
+							data[0] = sku;
+						}
+						lmLabel[pos].innerHTML = data[1];
+						skuLabel[pos].innerHTML = data[0];
+						if (data[0] != "") {
+							JsBarcode("#barcode_" + pos, data[0], {
+								width: 1.5,
+								height: 30,
+								font: "Helvetica"
+							});
 
+						}
+						nameLabel[pos].innerHTML = data[2];
+						getAVS(data[1], pos);
+						get2080(data[1], pos);
 					}
-					nameLabel[pos].innerHTML = data[2];
-					getAVS(data[1], pos);
+				});
+			} else {
+				clearItem(pos);
+			}
 
-				}
-			});
 		}
 
 
@@ -272,31 +295,37 @@ switch ($_SESSION["otdel_id"]) {
 		function getItemByLm(lm, pos) {
 			lmLabel[pos].innerHTML = "";
 			barcode[pos].innerHTML = "";
-			$.ajax({
-				type: "POST",
-				url: "aj/getdata.php",
-				data: {
-					"lm": lm
-				},
-				success: function(data) {
-					data = data.split("|");
-					if (data[1] == "") {
-						data[1] = lm;
-					}
-					lmLabel[pos].innerHTML = data[1];
-					skuLabel[pos].innerHTML = data[0];
-					if (data[0] != "") {
-						JsBarcode("#barcode_" + pos, data[0], {
-							width: 1.5,
-							height: 30,
-							font: "Helvetica"
-						});
+			if (lm) {
+				$.ajax({
+					type: "POST",
+					url: "aj/getdata.php",
+					data: {
+						"lm": lm
+					},
+					success: function(data) {
+						data = data.split("|");
+						if (data[1] == "") {
+							data[1] = lm;
+						}
+						lmLabel[pos].innerHTML = data[1];
+						skuLabel[pos].innerHTML = data[0];
+						if (data[0] != "") {
+							JsBarcode("#barcode_" + pos, data[0], {
+								width: 1.5,
+								height: 30,
+								font: "Helvetica"
+							});
 
+						}
+						nameLabel[pos].innerHTML = data[2];
+						getAVS(data[1], pos);
+						get2080(data[1], pos);
 					}
-					nameLabel[pos].innerHTML = data[2];
-					getAVS(data[1], pos);
-				}
-			});
+				});
+			} else {
+				clearItem(pos);
+			}
+
 		}
 
 		function editLm(pos) {

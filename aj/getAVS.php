@@ -7,14 +7,6 @@ $api_host = "http://localhost:8080";
 
 
 if (isset($item)) {
-    // $api_url = $api_host . "/palletcard/product/avs?item=" . $item;
-    // $json_data = file_get_contents($api_url);
-    // $response_data = json_decode($json_data);
-    // //$user_data = $response_data->data;
-
-    // echo $response_data;
-    // //echo $user_data;
-
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
