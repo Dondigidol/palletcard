@@ -4,7 +4,7 @@ header('Content-Type: text/html; charset=utf-8');
 require_once('../connect.php');
 
 $item = $_POST['item'];
-$store = 39; //$_SESSION["shop"];
+$store = $_SESSION["shop"];
 $api_host = "http://localhost:8080";
 
 
