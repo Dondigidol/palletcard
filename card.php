@@ -230,9 +230,12 @@ switch ($_SESSION["otdel_id"]) {
 					if (!avs.error) {
 						AVSLabel[pos].innerHTML = avs.avsDate;
 					} else {
-						AVSLabel[pos].innerHTML = "";
+						if (avs.status != 404) {
+							console.error(avs);
+							AVSLabel[pos].innerHTML = "Ошибка!";
+						}
 					}
-				}
+				},
 			})
 		}
 
@@ -248,7 +251,10 @@ switch ($_SESSION["otdel_id"]) {
 					if (!status2080.error) {
 						label2080[pos].innerHTML = status2080.status;
 					} else {
-						label2080[pos].innerHTML = "";
+						if (status2080.status != 404) {
+							console.error(status2080);
+							label2080[pos].innerHTML = "Ошибка!";
+						}
 					}
 				}
 			})

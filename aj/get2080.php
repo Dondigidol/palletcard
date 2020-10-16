@@ -3,9 +3,13 @@
 header('Content-Type: text/html; charset=utf-8');
 require_once('../connect.php');
 
+$params = parse_ini_file("../config.ini");
+
+
 $item = $_POST['item'];
 $store = $_SESSION["shop"];
-$api_host = "http://localhost:8080";
+$token = $params["blender_xApiKey"];
+$api_host = isset($params["blender_apiServer"]) ? $params["blender_apiServer"] : "http://localhost";
 
 
 if (isset($item)) {
@@ -13,7 +17,8 @@ if (isset($item)) {
 
     curl_setopt_array($curl, array(
         CURLOPT_URL => $api_host . "/palletcard/product/2080?item=" . $item . "&store=" . $store,
-        CURLOPT_CUSTOMREQUEST => "GET"
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array("x-api-key: $token"),
     ));
 
     $response = curl_exec($curl);
